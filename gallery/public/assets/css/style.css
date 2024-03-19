@@ -1,0 +1,302 @@
+:root {
+    --primary: #e9edc9;
+    --bg: #fff;
+    --red: #ff7f5b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    text-decoration: none;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: "Poppins", "sans-serif";
+    /* min-height: 4000px; */
+}
+
+/* Navbar */
+nav {
+    background-color: #fff;
+    padding: 0.4rem 7%;
+    border-bottom: 1px solid #ffdfd3;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 67%;
+    height: auto;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+.menu .logout {
+    font-weight: 500;
+    color: #b80000;
+    cursor: pointer;
+    font-size: 17px;
+    text-decoration: none;
+    background-color: #fff;
+}
+
+.menu li:first-child {
+    margin-left: 0;
+}
+
+.menu a {
+    color: #d6395e;
+    text-decoration: none;
+    font-size: 17px;
+}
+.menu .register {
+    font-weight: 500;
+    color: #b80000;
+}
+
+.menu a::after {
+    content: "";
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid #d6395e;
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+.menu a:hover::after {
+    transform: scaleX(0.5);
+}
+
+.menu-toggle {
+    display: none; /* Hide hamburger icon by default */
+}
+.search-navbar {
+    background-color: #d6395e;
+    padding: 1rem 5%;
+    border-bottom: 1px solid #ffdfd3; /* Sesuaikan dengan warna primary yang Anda gunakan */
+}
+
+.search-navbar .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d6395e;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-box input[type="text"] {
+    padding: 0.6rem;
+    border: none;
+    outline: none;
+    width: 850px;
+    color: #d6395e;
+}
+
+.search-box button {
+    padding: 0.6rem;
+    background-color: #ffdfd3;
+    border: none;
+    border-left: 1px solid #d6395e;
+    cursor: pointer;
+}
+.hero {
+    background-image: url("../images/background.jpg"); /* Ganti dengan path gambar latar belakang Anda */
+    background-size: cover;
+    background-position: center;
+    color: #d6395e;
+    text-align: center;
+    padding: 150px 0;
+}
+
+.containerr {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 0px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d6395e;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ffdfd3;
+    color: #d6395e;
+}
+h2 {
+    padding-top: 3em;
+    padding-right: 7em;
+    padding-left: 5.5em;
+    color: #d6395e;
+}
+.terbaru-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 1em;
+    padding-right: 8em;
+    padding-left: 8em;
+}
+
+.card {
+    width: calc(
+        25% - 20px
+    ); /* 25% untuk empat card per baris, dikurangi margin */
+    margin-bottom: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover; /* Mengatur bagaimana gambar ditampilkan dalam area yang diberikan */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-title {
+    font-size: 14.5px;
+    margin-top: 5.5px;
+    line-height: 1.4;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.card-title:hover {
+    color: #b9201f;
+}
+.card-body p {
+    font-size: 11px;
+    margin-bottom: 0px;
+}
+.card-body {
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 0 0 10px 10px;
+}
+/* footer */
+footer {
+    background-color: #ffdfd3;
+    text-align: center;
+    padding: 1rem 0 3rem;
+    margin-top: 3rem;
+}
+
+footer .social {
+    padding: 1rem 0;
+}
+
+footer .social a {
+    color: #d6395e;
+    margin: 1rem;
+}
+
+footer .social a:hover,
+footer .links a:hover {
+    color: #010101;
+}
+footer .links {
+    margin-bottom: 1rem;
+    color: #d6395e;
+}
+
+footer .credit {
+    font-size: 1rem;
+    color: #010101;
+}
+
+footer .credit a {
+    color: #b9201f;
+    font-weight: 700;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    html {
+        font-size: 65.7%;
+    }
+    .logo img {
+        width: 50%;
+        height: auto;
+    }
+    .menu li {
+        margin-left: 15px;
+    }
+    .menu a {
+        font-size: 15px;
+    }
+}
+
+/* Mobile phone */
+@media (max-width: 450px) {
+    html {
+        font-size: 55%;
+    }
+    .logo img {
+        width: 47%;
+        height: auto;
+    }
+    .menu li {
+        margin-left: 13px;
+    }
+    .menu a {
+        font-size: 10px;
+    }
+    .search-box input[type="text"] {
+        padding: 0.3rem;
+        width: 500px;
+        font-size: 13px;
+    }
+    button .fas {
+        font-size: 8px;
+    }
+    .search-box button {
+        padding: 0.3rem;
+    }
+}
