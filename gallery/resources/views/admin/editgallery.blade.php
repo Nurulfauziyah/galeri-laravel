@@ -74,7 +74,7 @@
           <img src="{{ asset('assets/images/cartoon.jpeg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ auth()->user()->name }} Admin</a>
+          <a href="#" class="d-block"> Admin</a>
         </div>
       </div>
 
@@ -112,17 +112,22 @@
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                      <label for="nama">Nama Gambar</label>
-                      <input type="text" class="form-control" value="{{ $data->nama }}"id="nama" 
-                      placeholder="nama gambar" name="nama">
+                      <label for="judulFoto">judulFoto Gambar</label>
+                      <input type="text" class="form-control" value="{{ $data->judulFoto }}"id="judulFoto" 
+                      placeholder="judulFoto gambar" name="judulFoto">
                     </div>
                     <div class="form-group">
-                        <label for="Gambarbuku">Masukkan Gambar</label>
+                      <label for="deskripsiFoto">deskripsiFoto Gambar</label>
+                      <input type="text" class="form-control" value="{{ $data->deskripsiFoto }}"id="deskripsiFoto" 
+                      placeholder="deskripsiFoto gambar" name="deskripsiFoto">
+                    </div>
+                    <div class="form-group">
+                        <label for="lokasiFile">Masukkan Gambar</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="Gambarbuku" 
+                                <input type="file" class="custom-file-input" id="lokasiFile" 
                                  placeholder="masukkan gambar buku" name="gallery">
-                                <label class="custom-file-label" for="Gambarbuku">Change Product Image</label>
+                                <label class="custom-file-label" for="lokasiFile">Change Product Image</label>
                             </div>
                         </div>
                     </div> 

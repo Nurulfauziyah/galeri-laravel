@@ -20,7 +20,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'username',
+        'namaLengkap',
+        'alamat',
         'email',
         'password',
     ];
@@ -35,7 +37,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function photos()
+    public function gallery()
     {
         return $this->hasMany(Gallery::class);
     }

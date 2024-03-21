@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('gallery', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('nama',50);
-            $table->string('gambar',100);
+            // $table->unsignedBigInteger('user_id');
+            $table->string('judulFoto',255);
+            $table->string('deskripsiFoto');
+            $table->string('lokasiFile',255);
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

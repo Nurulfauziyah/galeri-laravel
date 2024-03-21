@@ -13,7 +13,7 @@ class LoginController extends Controller
     //
     public function showLoginForm()
     {
-        return view('auth.login');
+        return view('auth.pageregister');
     }
 
     public function login(Request $request)
@@ -38,17 +38,21 @@ class LoginController extends Controller
     return redirect('/login');
 }
 
-public function register(){
-    return view('auth.register');
+public function showRegisterForm(){
+    return view('auth.pageregister');
 }
-public function registerproses(Request $request){
+public function register(Request $request){
     $request->validate([
-        'nama' => 'required',
+        'username' => 'required',
+        'alamat' => 'required',
+        'namaLengkap' => 'required',
         'email' => 'required|unique:users,email',
         'password' => 'required|min:6'
     ]);
 
-    $data['name'] = $request->nama;
+    $data['username'] = $request->username;
+    $data['alamat'] = $request->alamat;
+    $data['namaLengkap'] = $request->namaLengkap;
     $data['email'] = $request->email;
     $data['password'] = Hash::make($request->password);
 
@@ -58,7 +62,7 @@ public function registerproses(Request $request){
 
         if (Auth::attempt($login)) {
             // Jika autentikasi berhasil, arahkan pengguna ke halaman dashboard
-            return redirect()->intended('/login');
+            return redirect()->intended('admin/udahlogin');
         }
         // Jika autentikasi gagal, kembali ke halaman login dengan pesan kesalahan
         return redirect()->back()->withInput($request->only('email'))->withErrors([

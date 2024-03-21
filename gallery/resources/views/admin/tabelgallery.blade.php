@@ -16,8 +16,8 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset ('/') }}dist/css/adminlte.min.css">
 
-  <!-- favicon -->
-     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">  
+    <!-- favicon -->
+     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -108,8 +108,8 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                 <th>Uploaded By</th>
-                                 <th>Nama Gambar</th>
+                                 <th>Judul Buku</th>
+                                 <th>Deskripsi Gambar</th>
                                 <th>Gambar</th>
                                 <th>Waktu</th>
                                 <th>Action</th>
@@ -120,12 +120,12 @@
                             @foreach ($gallerys as $key => $gallery)
                             <tr>
                                 <td>{{  $key + 1}}</td>
-                                <td>{{ $gallery->user->name }}</td>
-                                <td>{{ $gallery->nama }}</td>
-                                <td><img width="100" height="100" src="{{ Storage::url($gallery->gambar) }}" alt=""></td>
+                                <td>{{ $gallery->judulFoto }}</td>
+                                <td>{{ $gallery->deskripsiFoto }}</td>
+                                <td><img width="100" height="100" src="{{ Storage::url($gallery->lokasiFile) }}" alt=""></td>
                                 <td>{{ $gallery->created_at->format('d/m/Y') }}</td>
-                                <td><a class="btn btn-success" href="{{ route('edit',$gallery->id) }}">Edit </a> 
-                                     <a class="btn btn-danger" href="{{ route('hapus-gallery',$gallery->id) }}">Delete</a> 
+                                <td><a class="btn btn-success" href="{{ route('edit',${{ route('hapus-gallery',$gallery->id) }}gallery->id) }}">Edit </a> 
+                                     <a class="btn btn-danger" href="">Delete</a> 
                                 </td>          
                             </tr>
                             @endforeach

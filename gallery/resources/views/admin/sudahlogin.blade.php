@@ -41,8 +41,7 @@
       </div>
       <ul class="menu">
         <li><a href="#">Beranda</a></li>
-        <li><a href="{{ ('tabelgallery') }}" class="register">Data Foto</a></li>
-        <li><a href="{{ ('tambahgallery') }}" class="register">Tambah Foto</a></li>
+        <li><a href="/admin/tambah_gallery" class="register">Tambah Foto</a></li>
         <li>
         <form action="{{ route('logout') }}" method="POST">
             @csrf
@@ -67,26 +66,39 @@
       <h1>Selamat Datang di Galeri Uci</h1>
       <p>Temukan berbagai foto yang kamu suka!</p>
       <a href="#terbaru" class="btn">Jelajahi</a>
+      
     </div>
   </section>
 
   <h2  id="terbaru">Foto Terbaru</h2>
- <section class="terbaru-section" id="terbaru">
-   @foreach ($gallerys as $gallery) 
+  <section class="terbaru-section" id="terbaru">
+
+     @if ($gallerys)
+    @foreach ($gallerys as $gallery) 
     <div class="card">
-       <a href="{{ Storage::url($gallery->gambar) }}" data-lightbox="models" data-title="Judul Gambar 1">
-      <img src="{{ Storage::url($gallery->gambar) }}">
+       <a href="{{ Storage::url($gallery->lokasiFile) }}" data-lightbox="models" data-title={{ $gallery->deskripsiFoto }}>
+      <img src="{{ Storage::url($gallery->lokasiFile) }}">
       </a>
 
       <div class="card-body">
-        <p> {{ $gallery->created_at->format('M d Y') }} | By {{ $gallery->user->name }}</p>
-        <h5 class="card-title">{{ $gallery->nama }}</h5>
-        
+        <p> uploaded on {{ $gallery->created_at->format('M d Y') }} </p>
+        <h5 class="card-title">{{ $gallery->judulFoto }}</h5>
+
+      <a href="{{ route('edit',$gallery->id) }}"><button class="btn btn-edit">Edit</button></a>
+      <a href="{{ route('hapus-gallery',$gallery->id) }}"><button class="btn btn-delete">Delete </button></a>
       </div>
+
+ 
     </div>
+
     @endforeach
+     @else
+
+     <h3>Tidak ada data galeri yang ditemukan</h3>
+@endif
 
   </section>
+
    <footer>
       <div class="social">
         <a href="#"><i class="fa-brands fa-facebook fa-lg"></i></a>
@@ -112,6 +124,4 @@
       feather.replace();
     </script>
     <script src="{{ asset('assets') }}/js/lightbox-plus-jquery.js"></script>
-
-   <script src="script.js"></script>
 </html>

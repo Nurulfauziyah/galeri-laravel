@@ -13,20 +13,14 @@ public function index(){
     $gallerys = Gallery::latest()->paginate(8);
     return view('user.index', compact('gallerys'));
 }
-    public function udahlogin(){
-       $gallerys = Gallery::latest()->paginate(8);
-    return view('admin.udahlogin', compact('gallerys'));
+    public function sudahlogin(){
+    $gallerys = Gallery::latest()->paginate(12);
+    return view('admin.sudahlogin', compact('gallerys'));
     }
-    public function tambahgallery(){
-        return view ('admin.tambahgallery');
+    public function tambah_gallery(){
+        return view ('admin.tambah_gallery');
     }
-     public function tabelgallery(){
-        $user = Auth::user();
-        $gallerys = $user->gallery;
-        $gallerys = Gallery::paginate(3);
-        return view ('admin.tabelgallery', compact('gallerys'));
-    }
-     public function editgallery(){
-        return view ('admin.editgallery');
+     public function edit_gallery(){
+        return view ('admin.edit_gallery');
     }
 }

@@ -22,12 +22,12 @@ class GalleryController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function udahlogin()
+    public function sudahlogin()
     {
         //
         
         $gallerys = Gallery::all();
-        return view('admin.udahlogin', compact('gallerys'));
+        return view('admin.sudahlogin', compact('gallerys'));
     }
 
     /**
@@ -37,12 +37,12 @@ class GalleryController extends Controller
     {
         //
         $data = new Gallery();
-        $data ->user_id= Auth::id();
-        $data ->nama=$request->nama;
-        $data ->gambar=$request->file('gambar')->store('public/gallery');
-        $data ->save();
+        $data ->judulFoto=$request->judulFoto;
+        $data ->deskripsiFoto=$request->deskripsiFoto;
+        $data ->lokasiFile=$request->file('lokasiFile')->store('public/gallery');
+        $data ->save(); 
 
-        return redirect()->route('admin.tabelgallery');
+        return redirect()->route('admin.sudahlogin');
     }
 
     /**
@@ -60,7 +60,7 @@ class GalleryController extends Controller
     {
         //
          $data = Gallery::find($id);
-        return view('admin.editgallery', compact('data'));
+        return view('admin.edit_gallery', compact('data'));
     }
 
     /**
@@ -77,15 +77,15 @@ class GalleryController extends Controller
     // Cari produk yang ingin diedit
     $data = Gallery::find($id);
 
-    $data ->user_id= Auth::id();
-    $data ->nama=$request->nama;
-    if ($request->hasFile('gambar')) {
-        Storage::delete($data->gambar); 
-        $data->gambar = $request->file('gallery')->store('public/gallery');
+$data ->judulFoto=$request->judulFoto;
+    $data ->deskripsiFoto=$request->deskripsiFoto;
+    if ($request->hasFile('lokasiFile')) {
+        Storage::delete($data->lokasiFile); 
+        $data->lokasiFile = $request->file('lokasiFile')->store('public/gallery');
     }
         $data ->save();
 
-        return redirect()->route('tabelgallery');
+        return redirect()->route('admin.sudahlogin');
     }
     
 
@@ -97,6 +97,6 @@ class GalleryController extends Controller
         //
         $data = Gallery::find($id)->delete();
 
-        return redirect()->route('tabelgallery');
+        return redirect()->route('admin.sudahlogin');
     }
 }

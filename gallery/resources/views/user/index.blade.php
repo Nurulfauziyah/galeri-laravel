@@ -70,13 +70,13 @@
   <section class="terbaru-section" id="terbaru">
     @foreach ($gallerys as $gallery) 
     <div class="card">
-       <a href="{{ Storage::url($gallery->gambar) }}" data-lightbox="models" data-title="Judul Gambar 1">
-      <img src="{{ Storage::url($gallery->gambar) }}">
+       <a href="{{ Storage::url($gallery->lokasiFile) }}" data-lightbox="models" data-title={{ $gallery->deskripsiFoto }}>
+      <img src="{{ Storage::url($gallery->lokasiFile) }}">
       </a>
 
       <div class="card-body">
-        <p> {{ $gallery->created_at->format('M d Y') }} | By {{ $gallery->user->name }}</p>
-        <h5 class="card-title">{{ $gallery->nama }}</h5>
+        <p> {{ $gallery->created_at->format('M d Y') }} | By {{ $gallery->judulFoto }}</p>
+        <h5 class="card-title">{{ $gallery->judulFoto }}</h5>
         
       </div>
     </div>
