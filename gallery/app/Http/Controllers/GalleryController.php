@@ -77,7 +77,7 @@ class GalleryController extends Controller
     // Cari produk yang ingin diedit
     $data = Gallery::find($id);
 
-$data ->judulFoto=$request->judulFoto;
+    $data ->judulFoto=$request->judulFoto;
     $data ->deskripsiFoto=$request->deskripsiFoto;
     if ($request->hasFile('lokasiFile')) {
         Storage::delete($data->lokasiFile); 
